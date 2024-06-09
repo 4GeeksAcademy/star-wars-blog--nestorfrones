@@ -1,43 +1,75 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+
+			apiUrl: "https://www.swapi.tech/api/",
+
+			All: [],
+
+			Planets: [],
+
+			Vehicles: [],
+
+			People: [],
+
+			Favorites: [],
+
+
+
 		},
+
+
+
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
+
+			getPeople: async () => {
 				const store = getStore();
+				try {
+					const response = await fetch(store.apiUrl + "people");
+					if (!response.ok) {
+						console.log("getPeolple error");
+					}
+					const data = await response.json();
+					setStore({
+						People: data.results,
+						Favorites: data.results
+					})
+				} catch (error) {
+					console.log(error);
+				}
+			},
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+			getPlanets: async () => {
+				const store = getStore();
+				try {
+					const response = await fetch(store.apiUrl + "planets");
+					if (!response.ok) {
+						console.log("gePlanets error");
+					}
+					const data = await response.json();
+					setStore({
+						Planets: data.results
+					})
+				} catch (error) {
+					console.log(error);
+				}
+			},
 
-				//reset the global store
-				setStore({ demo: demo });
-			}
+			getVehicles: async () => {
+				const store = getStore();
+				try {
+					const response = await fetch(store.apiUrl + "vehicles");
+					if (!response.ok) {
+						console.log("getVehicles error");
+					}
+					const data = await response.json();
+					setStore({
+						Vehicles: data.results
+					})
+				} catch (error) {
+					console.log(error);
+				}
+			},
 		}
 	};
 };
