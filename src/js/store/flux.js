@@ -1,10 +1,12 @@
+
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 
-			apiUrl: "https://www.swapi.tech/api/",
+			apiUrl: "https://swapi.dev/api/",
 
-			All: [],
+			apiUrl_2: "https://www.swapi.tech/api/",
 
 			Planets: [],
 
@@ -15,10 +17,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			Favorites: [],
 
 
-
 		},
-
-
 
 		actions: {
 
@@ -32,7 +31,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await response.json();
 					setStore({
 						People: data.results,
-						Favorites: data.results
+
 					})
 				} catch (error) {
 					console.log(error);
@@ -48,7 +47,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					const data = await response.json();
 					setStore({
-						Planets: data.results
+						Planets: data.results,
 					})
 				} catch (error) {
 					console.log(error);
@@ -58,7 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getVehicles: async () => {
 				const store = getStore();
 				try {
-					const response = await fetch(store.apiUrl + "vehicles");
+					const response = await fetch(store.apiUrl_2 + "vehicles");
 					if (!response.ok) {
 						console.log("getVehicles error");
 					}
@@ -70,6 +69,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error);
 				}
 			},
+
+			addFavorite: async (favoriteToAdd) => {
+				const store = getStore();
+				const newFavorites = store.Favorites.filter((favorite) => favorite.name !== favoriteToAdd.name);
+				setStore({
+					Favorites: [...newFavorites, favoriteToAdd]
+				})
+			},
+
+			removeFavorite: async (favoriteToRemove) => {
+				const store = getStore();
+				const newFavorites = store.Favorites.filter((favorite) => favorite.name !== favoriteToRemove.name);
+				setStore({
+					Favorites: newFavorites,
+				})
+			},
+
+			heartOnOff: async () => {
+				const store = getStore();
+				store.Favorites.filter()
+			}
+
+
 		}
 	};
 };
