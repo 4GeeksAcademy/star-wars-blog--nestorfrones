@@ -13,6 +13,11 @@ export const Planets = () => {
         actions.addFavorite(fav);
     }
 
+    function setDetails (planetUrl) {
+        actions.getDetails(planetUrl);
+    }
+
+
     return (
         <>
             {store.Planets.map((planet, index) => {
@@ -20,15 +25,15 @@ export const Planets = () => {
                     <div key={planet + index} className="card col-4 m-2">
                         <img src={"https://starwars-visualguide.com/assets/img/planets/" + (index + 2) + ".jpg"} className="card-img-top" alt="Image not found" />
                         <div className="card-body">
-                            <h5 className="card-title pb-3">{planet.name}</h5>
-                            <p className="card-text">Popularion: {planet.population}</p>
-                            <p className="card-text">Terrain: {planet.terrain}</p>
+                            <div className="mb-auto">
+                                <h3 className="card-title text-center pb-3">{planet.name}</h3>
+                            </div>
                             <div className="d-flex d-inline">
-                                <Link className="text-decoration-none" to="/description">
-                                    <button className="btn btn-success m-3">Learn more!</button>
+                                <Link className="text-decoration-none" to="/planet_details">
+                                    <button onClick={()=> setDetails(planet.url)} className="btn btn-warning m-3">Learn more!</button>
                                 </Link>
                                 <Link className="ms-auto text-decoration-none">
-                                    <FontAwesomeIcon onClick={() => addFavorite(planet)} className="m-3 fs-3" icon={faHeart} />
+                                    <FontAwesomeIcon onClick={() => addFavorite(planet)} className="text-warning    m-3 fs-3" icon={faHeart} />
                                 </Link>
                             </div>
                         </div>

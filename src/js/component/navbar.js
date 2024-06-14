@@ -9,6 +9,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons'
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
+
 	return (
 		<nav className="navbar fixed-top navbar-dark bg-dark mb-5">
 			<Link to="/">
@@ -18,8 +19,8 @@ export const Navbar = () => {
 				<div className="btn-group">
 					<button type="button" className="btn btn-secondary dropdown-toggle btn-lg" data-bs-toggle="dropdown" data-bs-display="static" data-bs-auto-close="outside" aria-expanded="false">
                            Favorites..  
-						   <FontAwesomeIcon className="mx-1 fs-5" icon={faHeart} />
-						   { store.Favorites.length}
+						   <FontAwesomeIcon className="mx-1 fs-5 text-warning" icon={faHeart} />
+						   { store.Favorites.length }
 					</button>
 					<ul className="dropdown-menu dropdown-menu-start">
 						<Favorites/>

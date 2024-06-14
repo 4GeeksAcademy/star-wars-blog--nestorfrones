@@ -14,6 +14,10 @@ export const Favorites = () => {
         actions.removeFavorite(element);
     }
 
+    function setDetails (favoriteUrl) {
+        actions.getDetails(favoriteUrl);
+    }
+
 
     return (
         <>
@@ -21,9 +25,11 @@ export const Favorites = () => {
             {store.Favorites.map((favorite, index) => {
                 return (
                     <div key={favorite + index} className="d-flex d-inline ">
-                        <p className="m-3">{favorite.name}</p>
+                        <Link to="/fav_details">
+                            <p onClick={()=>setDetails(favorite.url)} className="m-3">{favorite.name}</p>
+                        </Link>
                         <Link className="text-decoration-none ms-auto m-3">
-                            <FontAwesomeIcon onClick={() => deleteFavorite(favorite)} className="fs-5" icon={faTrash} />
+                            <FontAwesomeIcon onClick={() => deleteFavorite(favorite)} className="text-warning fs-5" icon={faTrash} />
                         </Link>
                     </div>
                 )

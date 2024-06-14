@@ -13,6 +13,11 @@ export const Characters = () => {
 
     function addFavorite(fav) {
         actions.addFavorite(fav);
+
+    }
+
+    function setDetails(characterUrl) {
+        actions.getDetails(characterUrl);
     }
 
 
@@ -23,16 +28,13 @@ export const Characters = () => {
                     <div key={character + index} className="card col-4 mx-2 mt-5">
                         <img src={"https://starwars-visualguide.com/assets/img/characters/" + (index + 1) + ".jpg"} className="card-img-top" alt="..." />
                         <div className="card-body">
-                            <h3 className="card-title">{character.name}</h3>
-                            <p className="card-text p-1 m-1">Gender:{character.gender}</p>
-                            <p className="card-text p-1 m-1">Hair Color: {character.hair_color}</p>
-                            <p className="card-text p-1 m-1">Eye Color: {character.eye_color}</p>
+                            <h3 className="card-title text-center">{character.name}</h3>
                             <div className="d-flex d-inline">
-                                <Link className="text-decoration-none" to="/description">
-                                    <button className="btn btn-success m-3">Learn more!</button>
+                                <Link to="/character_details" className="text-decoration-none">
+                                    <button onClick={() => setDetails(character.url)} className="btn btn-warning m-3">Learn more!</button>
                                 </Link>
                                 <Link className="ms-auto text-decoration-none">
-                                    <FontAwesomeIcon  onClick={() => addFavorite(character)} className="m-3 fs-3" icon={faHeart} />
+                                    <FontAwesomeIcon onClick={() => addFavorite(character)} className="text-warning m-3 fs-3" icon={faHeart} />
                                 </Link>
                             </div>
 
