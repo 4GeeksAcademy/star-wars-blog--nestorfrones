@@ -13,24 +13,28 @@ export const Vehicles = () => {
         actions.addFavorite(fav);
     }
 
-    function setDetails (planetUrl) {
-        actions.getDetails(planetUrl);
+    function setDetails(vehicleUrl) {
+        actions.getDetails(vehicleUrl);
+        actions.getDescription(vehicleUrl);
     }
 
     return (
         <>
-            {store.Vehicles.map((vehicle) => {
+            {store.Vehicles.map((vehicle, index) => {
                 return (
-                    <div key={vehicle.uid} className="card col-4 m-2">
-                        <img src={"https://starwars-visualguide.com/assets/img/vehicles/" + (vehicle.uid) + ".jpg"} className="card-img-top" alt="Image not found" />
-                        <div className="card-body">
+                    <div key={vehicle + index} className="card_vehicles card col-3 m-2 shadow bg-body-tertiary rounded-3">
+                        <img src={"https://starwars-visualguide.com/assets/img/vehicles/" + (vehicle.url.split("/")[5]) + ".jpg"} className="card-img-top" alt="Image not found" />
+                        <div className="card-body d-flex flex-column">
                             <h3 className="card-title text-center pb-3">{vehicle.name}</h3>
-                            <div className="d-flex d-inline">
-                                <Link className="text-decoration-none" to="/vehicle_details">
-                                    <button onClick={()=> setDetails(vehicle.url)} className="btn btn-warning m-3">Learn more!</button>
+                            <p className="card-text">Max Atmospering Speed: {vehicle.max_atmosphering_speed}</p>
+                            <p className="card-text">Passengers: {vehicle.passengers}</p>
+                            <p className="card-text">Vehicle Class: {vehicle.vehicle_class}</p>
+                            <div className="d-flex mt-auto ">
+                                <Link className="text-decoration-none" to="/vehicles_details">
+                                    <button onClick={() => setDetails(vehicle.url)} className="btn home_button m-3">Learn more!</button>
                                 </Link>
                                 <Link className="ms-auto text-decoration-none">
-                                    <FontAwesomeIcon onClick={() => addFavorite(vehicle)} className="text-warning m-3 fs-3" icon={faHeart} />
+                                    <FontAwesomeIcon onClick={() => addFavorite(vehicle)} className="yellow m-3 fs-3" icon={faHeart} />
                                 </Link>
                             </div>
                         </div>

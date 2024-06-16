@@ -1,3 +1,74 @@
 /* 
     General Styles
 */
+
+
+*::-webkit-scrollbar {
+    width: 12px;            
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: rgba(255, 255, 0, 0.301) ;
+    box-shadow: 0 0 10px yellow      
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 255, 0);  
+    border-radius: 20px;      
+    border: 1px solid rgb(255, 255, 89) ;  
+    
+  }
+
+.description {
+    border-color: yellow !important
+}
+
+.img_description {
+   width: 40rem;
+}
+
+.img_description_people {
+    width: 30rem;
+ }
+
+.stars {
+    background: url(https://www.script-tutorials.com/demos/360/images/stars.png) top center #000;
+}
+
+.nav_button {
+    background: #000;
+    box-shadow: 0 0 5px yellow !important;
+    color: yellow;
+}
+
+.nav_button:hover {
+    background: #000;
+    box-shadow: 0 0 15px yellow !important;
+    color: yellow;
+}
+
+.home_button {
+    background: yellow;
+    color: black;
+}
+
+
+.drop_favorites {
+    background: none;
+    box-shadow: 0 0 15px yellow !important;
+    color:white;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.card_people, .card_planets, .card_vehicles {
+    background: rgba(255, 255, 255, 0.034);
+    color: white;
+}
+
+h1, h2, h3{
+    color: yellow;
+}
+

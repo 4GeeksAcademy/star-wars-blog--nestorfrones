@@ -19,10 +19,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			Details: [],
 
-			Details_2: [],
+			Description: "",
 
 			Id: "",
-
 
 		},
 
@@ -30,8 +29,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getPeople: async () => {
 				const store = getStore();
+				const actions = getActions();
 				try {
-					const response = await fetch(store.apiUrl + "people");
+					const response = await fetch(store.apiUrl_2 + "people");
 					if (!response.ok) {
 						console.log("getPeolple error");
 					}
@@ -48,7 +48,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getPlanets: async () => {
 				const store = getStore();
 				try {
-					const response = await fetch(store.apiUrl + "planets");
+					const response = await fetch(store.apiUrl_2 + "planets");
 					if (!response.ok) {
 						console.log("gePlanets error");
 					}
@@ -64,7 +64,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getVehicles: async () => {
 				const store = getStore();
 				try {
-					const response = await fetch(store.apiUrl + "vehicles");
+					const response = await fetch(store.apiUrl_2 + "vehicles");
 					if (!response.ok) {
 						console.log("getVehicles error");
 					}
@@ -78,7 +78,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			addFavorite: async (favoriteToAdd) => {
-				console.log(favoriteToAdd);
 				const store = getStore();
 				const newFavorites = store.Favorites.filter((favorite) => favorite.name !== favoriteToAdd.name);
 				setStore({
@@ -96,6 +95,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			getDetails: async (url) => {
+				const store = getStore();
+				const actions = getActions();
 				try {
 					const response = await fetch(url);
 					if (!response.ok) {
@@ -103,9 +104,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					const data = await response.json();
 					setStore({
-						Details_2: data.result.properties,
-						Id: data.result.uid
+						Details: data,
+						Id: data.url.split("/")[5],
 					})
+				} catch (error) {
+					
+				}
+			}, 
+
+			getDescription: async (url) => {
+				const store = getStore();
+				try {
+					const response = await fetch(store.apiUrl + url.split("/")[4] + "/" + url.split("/")[5]);
+					if (!response.ok) {
+						console.log("getDescription error");
+					}
+					const data = await response.json();
+					setStore({
+						Description: data.result.description,
+					})					
 				} catch (error) {
 					
 				}
