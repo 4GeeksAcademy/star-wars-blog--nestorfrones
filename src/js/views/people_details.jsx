@@ -25,7 +25,7 @@ export const People_Details = () => {
                             <h5 className="card-text mt-5">{description}</h5>
                         </div>
                     </div>
-                    <div className="description container row mx-auto py-5 text-center text-light shadow bg-body-tertiary rounded-3 border-top border-5">
+                    <div className="description container row mx-auto py-5 text-center white shadow bg-body-tertiary rounded-3 border-top border-5">
                         <div className="col">
                             <div className="card-body">
                                 <h5 className="card-title">Birth Year:</h5>

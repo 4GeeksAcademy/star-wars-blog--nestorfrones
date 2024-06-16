@@ -22,7 +22,7 @@ export const Vehicles = () => {
         <>
             {store.Vehicles.map((vehicle, index) => {
                 return (
-                    <div key={vehicle + index} className="card_vehicles card col-3 m-2 shadow bg-body-tertiary rounded-3">
+                    <div key={vehicle + index} className="card_vehicles white card col-3 m-2 shadow bg-body-tertiary rounded-3">
                         <img src={"https://starwars-visualguide.com/assets/img/vehicles/" + (vehicle.url.split("/")[5]) + ".jpg"} className="card-img-top" alt="Image not found" />
                         <div className="card-body d-flex flex-column">
                             <h3 className="card-title text-center pb-3">{vehicle.name}</h3>

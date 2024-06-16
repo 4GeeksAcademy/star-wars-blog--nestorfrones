@@ -23,7 +23,7 @@ export const Planets = () => {
         <>
             {store.Planets.map((planet, index) => {
                 return (
-                    <div key={planet + index} className="card_planets card col-3 m-2 shadow bg-body-tertiary rounded-3">
+                    <div key={planet + index} className="card_planets white card col-3 m-2 shadow bg-body-tertiary rounded-3">
                         <img src={"https://starwars-visualguide.com/assets/img/planets/" + (index + 2) + ".jpg"} className="card-img-top" alt="Image not found" />
                         <div className="card-body d-flex flex-column">
                             <h3 className="card-title text-center pb-3">{planet.name}</h3>

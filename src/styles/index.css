@@ -20,7 +20,8 @@
   }
 
 .description {
-    border-color: yellow !important
+    border-color: yellow !important;
+    color: white
 }
 
 .img_description {
@@ -59,16 +60,16 @@
     color:white;
 }
 
-.yellow {
+.yellow, h1, h2, h3  {
     color: yellow;
+}
+
+.white {
+    color: white !important;
 }
 
 .card_people, .card_planets, .card_vehicles {
     background: rgba(255, 255, 255, 0.034);
-    color: white;
-}
-
-h1, h2, h3{
-    color: yellow;
+    color: white !important;
 }
 
