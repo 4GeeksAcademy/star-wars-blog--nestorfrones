@@ -15,9 +15,9 @@ export const Favorites = () => {
         actions.removeFavorite(element);
     }
 
-    function setDetails (favoriteUrl) {
-        actions.getDetails(favoriteUrl);
-        actions.getDescription(favoriteUrl);
+    function setDetails (favorite) {
+        actions.getDetails(favorite);
+        actions.getDescription(favorite.url);
     }
 
 
@@ -28,7 +28,7 @@ export const Favorites = () => {
                 return (
                     <div key={favorite + index} className="d-flex d-inline">
                         <Link to={favorite.url.split("/")[4]+"_details"} className="text-light text-decoration-none">
-                            <p onClick={()=>setDetails(favorite.url)} className="m-3"> {favorite.name}</p>
+                            <p onClick={()=>setDetails(favorite)} className="m-3"> {favorite.name}</p>
                         </Link>
                         <Link className="text-decoration-none ms-auto m-3">
                             <FontAwesomeIcon onClick={() => deleteFavorite(favorite)} className="yellow fs-5" icon={faTrash} />

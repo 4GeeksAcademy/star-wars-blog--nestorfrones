@@ -16,9 +16,9 @@ export const Characters = () => {
         actions.addFavorite(fav);
     }
 
-    function setDetails(characterUrl) {
-        actions.getDetails(characterUrl);
-        actions.getDescription(characterUrl);
+    function setDetails(character) {
+        actions.getDetails(character);
+        actions.getDescription(character.url);
     }
 
 
@@ -36,7 +36,7 @@ export const Characters = () => {
                             <p className="card-title">Eye Color: {character.eye_color}</p>
                             <div className="d-flex mt-auto">
                                 <Link to="/people_details" className="text-decoration-none">
-                                    <button onClick={() => setDetails(character.url)} className="home_button btn m-3">Learn more!</button>
+                                    <button onClick={() => setDetails(character)} className="home_button btn m-3">Learn more!</button>
                                 </Link>
                                 <Link className="ms-auto text-decoration-none">
                                     <FontAwesomeIcon onClick={() => addFavorite(character)} id={character.name} className="yellow m-3 fs-3 opacity-25" icon={faHeart} />

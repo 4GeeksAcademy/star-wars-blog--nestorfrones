@@ -13,9 +13,9 @@ export const Vehicles = () => {
         actions.addFavorite(fav);
     }
 
-    function setDetails(vehicleUrl) {
-        actions.getDetails(vehicleUrl);
-        actions.getDescription(vehicleUrl);
+    function setDetails(vehicle) {
+        actions.getDetails(vehicle);
+        actions.getDescription(vehicle.url);
     }
 
     return (
@@ -31,7 +31,7 @@ export const Vehicles = () => {
                             <p className="card-text">Vehicle Class: {vehicle.vehicle_class}</p>
                             <div className="d-flex mt-auto ">
                                 <Link className="text-decoration-none" to="/vehicles_details">
-                                    <button onClick={() => setDetails(vehicle.url)} className="btn home_button m-3">Learn more!</button>
+                                    <button onClick={() => setDetails(vehicle)} className="btn home_button m-3">Learn more!</button>
                                 </Link>
                                 <Link className="ms-auto text-decoration-none">
                                     <FontAwesomeIcon onClick={() => addFavorite(vehicle)} id={vehicle.name} className="yellow m-3 fs-3 opacity-25" icon={faHeart} />

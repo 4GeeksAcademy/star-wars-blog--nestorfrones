@@ -44,7 +44,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 
-			
+
 			getPlanets: async () => {
 				const store = getStore();
 				try {
@@ -102,36 +102,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 				heartOn.classList.remove("opacity-100");
 			},
 
-			getDetails: async (url) => {
-				try {
-					const response = await fetch(url);
-					if (!response.ok) {
-						console.log("getDetails error");
-					}
-					const data = await response.json();
-					setStore({
-						Details: data,
-						Id: data.url.split("/")[5],
-					})
-				} catch (error) {
-					
-				}
-			}, 
-
-			getDescription: async (url) => {
+			getDetails: (element) => {
 				const store = getStore();
-				try {
-					const response = await fetch(store.apiUrl + url.split("/")[4] + "/" + url.split("/")[5]);
-					if (!response.ok) {
-						console.log("getDescription error");
-					}
-					const data = await response.json();
+				if (element.url.split("/")[4] === "people")
+					store.People.find((character) => character.url === element.url)
+				setStore({
+					Details: element,
+					Id: element.url.split("/")[5],
+				})
+				if (element.url.split("/")[4] === "planets")
+					store.Planets.find((planet) => planet.url === element.url)
+				setStore({
+					Details: element,
+					Id: element.url.split("/")[5],
+				})
+				if (element.url.split("/")[4] === "vehicles")
+					store.Vehicles.find((vehicle) => vehicle.url === element.url)
+				setStore({
+					Details: element,
+					Id: element.url.split("/")[5],
+				})
+			},
+
+
+			getDescription: (url) => {
+				const store = getStore();
 					setStore({
-						Description: data.result.description,
-					})					
-				} catch (error) {
-					console.log(error);
-				}
+						Description: url,
+					})
 			},
 		}
 	};
