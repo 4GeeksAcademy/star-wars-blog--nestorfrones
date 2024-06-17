@@ -13,6 +13,7 @@ import { Home } from "./views/home.jsx";
 import { People_Details } from "./views/people_details.jsx";
 import { Planet_Details } from "./views/planets_details.jsx";
 import { Vehicle_Details } from "./views/vehicles_details.jsx";
+import { Reproductor } from "./component/Reproductor.jsx";
 
 
 //create your first component
@@ -33,6 +34,7 @@ const Layout = () => {
 						<Route path="/vehicles_details" element={<Vehicle_Details/>}/>
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
+					<Reproductor/>
 					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
