@@ -80,22 +80,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addFavorite: async (favoriteToAdd) => {
 				const actions = getActions();
 				const store = getStore();
+				const heartOn = document.getElementById(favoriteToAdd.name);
 				const newFavorites = store.Favorites.filter((favorite) => favorite.name !== favoriteToAdd.name);
 				setStore({
 					Favorites: [...newFavorites, favoriteToAdd]
 				})
-				actions.checkFavoriteOn(favoriteToAdd.name);
+				heartOn.classList.remove("opacity-25");
+				heartOn.classList.add("opacity-100");
 			},
 
 
 			removeFavorite: async (favoriteToRemove) => {
 				const actions = getActions();
 				const store = getStore();
+				const heartOn = document.getElementById(favoriteToRemove.name);
 				const newFavorites = store.Favorites.filter((favorite) => favorite.name !== favoriteToRemove.name);
 				setStore({
 					Favorites: newFavorites,
 				})
-				actions.checkFavoriteOff(favoriteToRemove.name);
+				heartOn.classList.add("opacity-25");
+				heartOn.classList.remove("opacity-100");
 			},
 
 			getDetails: async (url) => {
@@ -129,26 +133,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error);
 				}
 			},
-
-			checkFavoriteOn: async (name) => {
-				const store = getStore();
-				const heartOn = document.getElementById(name);
-				if(store.Favorites.filter((favorite) => favorite.name !== name)){
-					heartOn.classList.remove("opacity-25");
-					heartOn.classList.add("opacity-100");
-				}
-			},
-
-			checkFavoriteOff: async (name) => {
-				const store = getStore();
-				const heartOn = document.getElementById(name);
-				if(store.Favorites.filter((favorite) => favorite.name !== name)){
-					heartOn.classList.add("opacity-25");
-					heartOn.classList.remove("opacity-100");
-				}
-			},
-
-			
 		}
 	};
 };
