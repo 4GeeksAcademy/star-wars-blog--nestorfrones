@@ -78,25 +78,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			addFavorite: async (favoriteToAdd) => {
+				const actions = getActions();
 				const store = getStore();
 				const newFavorites = store.Favorites.filter((favorite) => favorite.name !== favoriteToAdd.name);
 				setStore({
 					Favorites: [...newFavorites, favoriteToAdd]
 				})
+				actions.checkFavoriteOn(favoriteToAdd.name);
 			},
 
 
 			removeFavorite: async (favoriteToRemove) => {
+				const actions = getActions();
 				const store = getStore();
 				const newFavorites = store.Favorites.filter((favorite) => favorite.name !== favoriteToRemove.name);
 				setStore({
 					Favorites: newFavorites,
 				})
+				actions.checkFavoriteOff(favoriteToRemove.name);
 			},
 
 			getDetails: async (url) => {
-				const store = getStore();
-				const actions = getActions();
 				try {
 					const response = await fetch(url);
 					if (!response.ok) {
@@ -124,9 +126,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 						Description: data.result.description,
 					})					
 				} catch (error) {
-					
+					console.log(error);
 				}
-			}
+			},
+
+			checkFavoriteOn: async (name) => {
+				const store = getStore();
+				const heartOn = document.getElementById(name);
+				if(store.Favorites.filter((favorite) => favorite.name !== name)){
+					heartOn.classList.remove("opacity-25");
+					heartOn.classList.add("opacity-100");
+				}
+			},
+
+			checkFavoriteOff: async (name) => {
+				const store = getStore();
+				const heartOn = document.getElementById(name);
+				if(store.Favorites.filter((favorite) => favorite.name !== name)){
+					heartOn.classList.add("opacity-25");
+					heartOn.classList.remove("opacity-100");
+				}
+			},
+
+			
 		}
 	};
 };

@@ -11,6 +11,7 @@ export const Characters = () => {
     const { store, actions } = useContext(Context);
 
 
+
     function addFavorite(fav) {
         actions.addFavorite(fav);
     }
@@ -19,6 +20,7 @@ export const Characters = () => {
         actions.getDetails(characterUrl);
         actions.getDescription(characterUrl);
     }
+
 
 
     return (
@@ -37,7 +39,7 @@ export const Characters = () => {
                                     <button onClick={() => setDetails(character.url)} className="home_button btn m-3">Learn more!</button>
                                 </Link>
                                 <Link className="ms-auto text-decoration-none">
-                                    <FontAwesomeIcon onClick={() => addFavorite(character)} className="yellow m-3 fs-3" icon={faHeart} />
+                                    <FontAwesomeIcon onClick={() => addFavorite(character)} id={character.name} className="yellow m-3 fs-3 opacity-25" icon={faHeart} />
                                 </Link>
                             </div>
 

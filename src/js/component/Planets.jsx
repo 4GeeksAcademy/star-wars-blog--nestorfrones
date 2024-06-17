@@ -34,7 +34,7 @@ export const Planets = () => {
                                     <button onClick={() => setDetails(planet.url)} className="btn home_button m-3">Learn more!</button>
                                 </Link>
                                 <Link className="ms-auto text-decoration-none">
-                                    <FontAwesomeIcon onClick={() => addFavorite(planet)} className="yellow m-3 fs-3" icon={faHeart} />
+                                    <FontAwesomeIcon onClick={() => addFavorite(planet)} id={planet.name} className="yellow m-3 fs-3 opacity-25" icon={faHeart} />
                                 </Link>
                             </div>
                         </div>
