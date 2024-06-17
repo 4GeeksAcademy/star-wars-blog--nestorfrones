@@ -27,7 +27,7 @@ export const Characters = () => {
         <>
             {store.People.map((character, index) => {
                 return (
-                    <div key={character + index} className="card_people white card col-3 mx-2 mt-5 shadow bg-body-tertiary rounded-3">
+                    <div key={character + index} className="card_people white card col-sm-6 col-md-3 mx-2 mt-5 shadow bg-body-tertiary rounded-3">
                         <img src={"https://starwars-visualguide.com/assets/img/characters/" + (character.url.split("/")[5]) + ".jpg"} className="card-img-top" alt="..." />
                         <div className="card-body d-flex flex-column">
                             <h3 className="card-title text-center">{character.name}</h3>

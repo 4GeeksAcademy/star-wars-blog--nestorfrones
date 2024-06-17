@@ -12,19 +12,19 @@ export const Home = () => {
         <div className="stars container-fliud">
             <div className="container">
                 <div className="lista shadow-lg p-3 rounded-3">
-                    <h1 className="ms-5 pt-5 mt-5 yellow">Characters</h1>
+                    <h1 className="text-center pt-5 mt-5 yellow">Characters</h1>
                     <div className="d-flex overflow-auto">
                         <Characters />
                     </div>
                 </div>
                 <div className="shadow-lg p-3 rounded-3">
-                    <h1 className="ms-5 my-5 yellow">Planets</h1>
+                    <h1 className="text-center my-5 yellow">Planets</h1>
                     <div className="d-flex overflow-auto">
                         <Planets />
                     </div>
                 </div>
                 <div className="shadow-lg p-3 rounded-3">
-                    <h1 className="ms-5 my-5 yellow">Vehicles</h1>
+                    <h1 className="text-center my-5 yellow">Vehicles</h1>
                     <div className="d-flex overflow-auto my-3">
                         <Vehicles />
                     </div>

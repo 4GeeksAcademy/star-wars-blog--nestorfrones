@@ -19,11 +19,11 @@ export const Vehicle_Details = () => {
         <>
             <div className="contaier">
                 <div className="stars card mx-auto">
-                    <div className="container m-auto p-5 d-flex shadow bg-body-tertiary rounded-3">
-                        <div className="col m-5">
+                    <div className="container m-auto p-5 row shadow bg-body-tertiary rounded-3">
+                        <div className="col m-auto">
                             <img src={"https://starwars-visualguide.com/assets/img/vehicles/" + id + ".jpg"} className="card-img-top img_description" alt="..." />
                         </div>
-                        <div className="col m-5 text-center yellow">
+                        <div className="col m-auto text-center yellow">
                             <h1 className="card-text mt-5">{details.name}</h1>
                             <h5 className="card-text mt-5">{description}</h5>
                         </div>

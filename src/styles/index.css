@@ -25,11 +25,12 @@
 }
 
 .img_description {
-   width: 40rem;
+    margin-top: 7rem !important;
+   width: 30rem;
 }
 
 .img_description_people {
-    width: 30rem;
+    width: 25rem;
  }
 
 .stars {
