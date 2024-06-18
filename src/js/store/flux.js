@@ -81,12 +81,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const actions = getActions();
 				const store = getStore();
 				const heartOn = document.getElementById(favoriteToAdd.name);
-				const newFavorites = store.Favorites.filter((favorite) => favorite.name !== favoriteToAdd.name);
-				setStore({
-					Favorites: [...newFavorites, favoriteToAdd]
-				})
-				heartOn.classList.remove("opacity-25");
-				heartOn.classList.add("opacity-100");
+				const newNewFavorites = store.Favorites.find((favorite)=>favorite.name === favoriteToAdd.name);
+				if(favoriteToAdd === newNewFavorites){
+					actions.removeFavorite(favoriteToAdd)
+				}else{
+					const newFavorites = store.Favorites.filter((favorite) => favorite.name !== favoriteToAdd.name);
+					setStore({
+						Favorites: [...newFavorites, favoriteToAdd]
+					})
+					heartOn.classList.remove("opacity-25");
+					heartOn.classList.add("opacity-100");
+				}
+				
 			},
 
 
@@ -102,6 +108,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				heartOn.classList.remove("opacity-100");
 			},
 
+			
 			getDetails: (element) => {
 				const store = getStore();
 				if (element.url.split("/")[4] === "people")

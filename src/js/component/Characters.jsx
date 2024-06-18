@@ -13,7 +13,7 @@ export const Characters = () => {
 
 
     function addFavorite(fav) {
-        actions.addFavorite(fav);
+        actions.addFavorite(fav)
     }
 
     function setDetails(character) {
