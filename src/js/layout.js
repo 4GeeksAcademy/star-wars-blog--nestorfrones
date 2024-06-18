@@ -10,9 +10,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import { Home } from "./views/home.jsx";
-import { People_Details } from "./views/people.jsx";
-import { Planet_Details } from "./views/planets.jsx";
-import { Vehicle_Details } from "./views/vehicles.jsx";
+import { Details } from "./views/details.jsx";
 import { Reproductor } from "./component/Reproductor.jsx";
 
 
@@ -29,9 +27,7 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home/>}/>
-						<Route path="/people/:id" element={<People_Details/>}/>
-						<Route path="/planets/:id" element={<Planet_Details/>}/>
-						<Route path="/vehicles/:id" element={<Vehicle_Details/>}/>
+						<Route path="/details/:category/:id" element={<Details/>}/>
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Reproductor/>

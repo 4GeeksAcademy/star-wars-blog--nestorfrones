@@ -27,7 +27,7 @@ export const Favorites = () => {
             {store.Favorites.map((favorite, index) => {
                 return (
                     <div key={favorite + index} className="d-flex d-inline">
-                        <Link to={favorite.url.split("/")[4]+"_details"} className="text-light text-decoration-none">
+                        <Link to={"/details/"+ (favorite.url.split("/")[4]) +"/"+ (favorite.url.split("/")[5])} className="text-light text-decoration-none">
                             <p onClick={()=>setDetails(favorite)} className="m-3"> {favorite.name}</p>
                         </Link>
                         <Link className="text-decoration-none ms-auto m-3">

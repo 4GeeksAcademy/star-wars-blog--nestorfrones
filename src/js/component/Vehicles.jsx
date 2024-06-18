@@ -30,7 +30,7 @@ export const Vehicles = () => {
                             <p className="card-text">Passengers: {vehicle.passengers}</p>
                             <p className="card-text">Vehicle Class: {vehicle.vehicle_class}</p>
                             <div className="d-flex mt-auto ">
-                                <Link className="text-decoration-none" to={"/vehicles/" + (vehicle.url.split("/")[5])}>
+                                <Link className="text-decoration-none" to={"/details/" + (vehicle.url.split("/")[4]) +"/"+ (vehicle.url.split("/")[5])}>
                                     <button onClick={() => setDetails(vehicle)} className="btn home_button m-3">Learn more!</button>
                                 </Link>
                                 <Link className="ms-auto text-decoration-none">
