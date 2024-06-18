@@ -17,7 +17,7 @@ export const Details = () => {
             <div className="contaier">
                 <div className="stars card mx-auto">
                     <div className="container m-auto p-5 row shadow bg-body-tertiary rounded-3">
-                        <div className="col m-auto">
+                        <div className="col-12 m-auto">
                             <img src={"https://starwars-visualguide.com/assets/img/characters/" + id + ".jpg"} className="card-img-top img_description_people" alt="..." />
                         </div>
                         <div className="col m-auto text-center yellow">
