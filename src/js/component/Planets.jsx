@@ -30,7 +30,7 @@ export const Planets = () => {
                             <p className="card-text">Population: {planet.population}</p>
                             <p className="card-text">Terrain: {planet.terrain}</p>
                             <div className="d-flex mt-auto">
-                                <Link className="text-decoration-none" to="/planets_details">
+                                <Link className="text-decoration-none" to={"/planets/" + (index + 2)}>
                                     <button onClick={() => setDetails(planet)} className="btn home_button m-3">Learn more!</button>
                                 </Link>
                                 <Link className="ms-auto text-decoration-none">

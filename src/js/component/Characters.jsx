@@ -35,7 +35,7 @@ export const Characters = () => {
                             <p className="card-title">Hair Color: {character.hair_color}</p>
                             <p className="card-title">Eye Color: {character.eye_color}</p>
                             <div className="d-flex mt-auto">
-                                <Link to="/people_details" className="text-decoration-none">
+                                <Link to={"/people/"+ (character.url.split("/")[5]) } className="text-decoration-none">
                                     <button onClick={() => setDetails(character)} className="home_button btn m-3">Learn more!</button>
                                 </Link>
                                 <Link className="ms-auto text-decoration-none">

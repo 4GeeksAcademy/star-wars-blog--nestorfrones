@@ -124,7 +124,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 			},
 
-
 			getDescription: (url) => {
 				const store = getStore();
 					setStore({
