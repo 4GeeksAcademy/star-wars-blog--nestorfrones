@@ -34,7 +34,7 @@ export const Vehicles = () => {
                                     <button onClick={() => setDetails(vehicle)} className="btn home_button m-3">Learn more!</button>
                                 </Link>
                                 <Link className="ms-auto text-decoration-none">
-                                    <FontAwesomeIcon onClick={() => addFavorite(vehicle)} id={vehicle.name} className="yellow m-3 fs-3 opacity-25" icon={faHeart} />
+                                    <FontAwesomeIcon onClick={() => addFavorite(vehicle)} className={`${store.Favorites.includes(vehicle) ? "opacity-100" : " opacity-25"} yellow m-3 fs-3`} icon={faHeart} />
                                 </Link>
                             </div>
                         </div>

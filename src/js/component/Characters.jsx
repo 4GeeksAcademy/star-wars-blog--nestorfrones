@@ -39,7 +39,7 @@ export const Characters = () => {
                                     <button onClick={() => setDetails(character)} className="home_button btn m-3">Learn more!</button>
                                 </Link>
                                 <Link className="ms-auto text-decoration-none">
-                                    <FontAwesomeIcon onClick={() => addFavorite(character)} id={character.name} className="yellow m-3 fs-3 opacity-25" icon={faHeart} />
+                                    <FontAwesomeIcon onClick={() => addFavorite(character)} className={`${store.Favorites.includes(character) ? "opacity-100" : " opacity-25"} yellow m-3 fs-3`} icon={faHeart} />
                                 </Link>
                             </div>
 

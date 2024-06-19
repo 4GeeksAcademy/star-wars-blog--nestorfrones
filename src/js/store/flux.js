@@ -80,7 +80,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addFavorite: async (favoriteToAdd) => {
 				const actions = getActions();
 				const store = getStore();
-				const heartOn = document.getElementById(favoriteToAdd.name);
 				const newNewFavorites = store.Favorites.find((favorite)=>favorite.name === favoriteToAdd.name);
 				if(favoriteToAdd === newNewFavorites){
 					actions.removeFavorite(favoriteToAdd)
@@ -89,23 +88,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({
 						Favorites: [...newFavorites, favoriteToAdd]
 					})
-					heartOn.classList.remove("opacity-25");
-					heartOn.classList.add("opacity-100");
 				}
-				
 			},
 
 
 			removeFavorite: async (favoriteToRemove) => {
 				const actions = getActions();
 				const store = getStore();
-				const heartOn = document.getElementById(favoriteToRemove.name);
 				const newFavorites = store.Favorites.filter((favorite) => favorite.name !== favoriteToRemove.name);
 				setStore({
 					Favorites: newFavorites,
 				})
-				heartOn.classList.add("opacity-25");
-				heartOn.classList.remove("opacity-100");
 			},
 
 			
